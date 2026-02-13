@@ -27,7 +27,39 @@
 -
 ```
 
-## 2-requirements
+## 2-prototyping-learnings
+
+```markdown
+# Prototyping Learnings: {Task Name}
+
+## What Worked Well
+
+-
+
+## What Felt Awkward
+
+-
+
+## Discovered Requirements
+
+Requirements or constraints that became apparent through prototyping:
+
+-
+
+## UX Insights
+
+Insights that should influence the design:
+
+-
+
+## Notes
+
+Additional observations:
+
+-
+```
+
+## 3-requirements
 
 ```markdown
 # Requirements: {Task Name}
@@ -55,7 +87,7 @@ As a [user type], I want to [action] so that [benefit].
 - Item 2
 ```
 
-## 3-design
+## 4-design
 
 ````markdown
 # Design: {Task Name}
@@ -129,7 +161,7 @@ Domain → Application → Controller → Handler
 | ...           | (outer layer) | Needs framework/infra          |
 ````
 
-## 4-implementation-plan
+## 5-implementation-plan
 
 ```markdown
 # Implementation Plan {N}: {PR Title}
@@ -140,9 +172,9 @@ Brief description of what this PR accomplishes.
 
 ## Dependencies
 
-- Requires: 4-implementation-plan-{X} (if any)
-- Blocks: 4-implementation-plan-{Y} (if any)
-- Parallel: Can run alongside 4-implementation-plan-{Z}
+- Requires: 5-implementation-plan-{X} (if any)
+- Blocks: 5-implementation-plan-{Y} (if any)
+- Parallel: Can run alongside 5-implementation-plan-{Z}
 
 ## Tasks
 

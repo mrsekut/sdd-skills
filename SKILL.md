@@ -21,10 +21,11 @@ Name `{task-name}` based on the task (e.g., `create-article-component`, `add-use
 
 ```
 1. Context Analysis    → 1-context.md
-2. Requirements        → 2-requirements.md
-3. Design              → 3-design.md
-4. Implementation Plan → 4-implementation-plan-{N}.md
-5. Implementation      → (PR loop)
+2. Prototyping (opt)   → 2-prototyping-learnings.md
+3. Requirements        → 3-requirements.md
+4. Design              → 4-design.md
+5. Implementation Plan → 5-implementation-plan-{N}.md
+6. Implementation      → (PR loop)
 ```
 
 Each phase: Create document → Present to user → Get approval → Next phase
@@ -44,11 +45,51 @@ Contents:
 
 Present to user and get approval before proceeding.
 
-## Phase 2: Requirements Definition
+## Phase 2: Prototyping (Optional)
+
+Rapidly build a throwaway prototype to understand user experience before defining requirements.
+
+**Ask the user if they want to do prototyping before proceeding.**
+
+### Purpose
+
+- Quickly validate the user experience and usability
+- Discover requirements that are hard to imagine without trying
+- All code changes will be discarded after confirmation
+
+### Guidelines
+
+- **Ignore all type errors and lint errors** - speed over correctness
+- Build the minimum to experience the feature
+- Focus on the "feel" of using it, not the implementation quality
+- No tests, no clean code - just make it work enough to try
+
+### Process
+
+1. Build a rough prototype (ignore tsc/lint errors)
+2. User tries the prototype and provides feedback
+3. Document learnings in `.specs/{task-name}/2-prototyping-learnings.md`
+4. **Discard all code changes** (e.g., `git checkout .`)
+5. Proceed to Requirements phase with new insights
+
+Create `.specs/{task-name}/2-prototyping-learnings.md`. See [references/templates.md](references/templates.md#2-prototyping-learnings) for format.
+
+Contents:
+
+- What worked well in the prototype
+- What felt awkward or wrong
+- Discovered requirements or constraints
+- UX insights that should influence design
+
+Present learnings to user and get approval before proceeding.
+
+## Phase 3: Requirements Definition
 
 Define WHAT the task should accomplish, not HOW.
 
-Create `.specs/{task-name}/2-requirements.md`. See [references/templates.md](references/templates.md#2-requirements) for format.
+Create `.specs/{task-name}/3-requirements.md`. See [references/templates.md](references/templates.md#3-requirements) for format.
+
+**If prototyping was done**: Reference `2-prototyping-learnings.md` to incorporate discovered insights.
 
 Guidelines:
 
@@ -60,11 +101,11 @@ Guidelines:
 
 Present to user and get approval before proceeding.
 
-## Phase 3: Design
+## Phase 4: Design
 
 Define the implementation direction at an architectural level. Not implementation details.
 
-Create `.specs/{task-name}/3-design.md`. See [references/templates.md](references/templates.md#3-design) for format.
+Create `.specs/{task-name}/4-design.md`. See [references/templates.md](references/templates.md#4-design) for format.
 
 Contents:
 
@@ -96,11 +137,11 @@ Identify your project's layers and document where each logic belongs. Benefits: 
 
 Present to user and get approval before proceeding.
 
-## Phase 4: Implementation Plan
+## Phase 5: Implementation Plan
 
 Break down the design into PR-sized units.
 
-Create `.specs/{task-name}/4-implementation-plan-{N}.md` for each PR. See [references/templates.md](references/templates.md#4-implementation-plan) for format.
+Create `.specs/{task-name}/5-implementation-plan-{N}.md` for each PR. See [references/templates.md](references/templates.md#5-implementation-plan) for format.
 
 ### PR Structure Strategy
 
@@ -120,19 +161,19 @@ Choose based on task characteristics:
 
 Present all plans to user and get approval before proceeding.
 
-## Phase 5: Implementation
+## Phase 6: Implementation
 
 Execute implementation plans PR by PR.
 
 ### PR Loop
 
-For each `4-implementation-plan-{N}.md`:
+For each `5-implementation-plan-{N}.md`:
 
 ```
 1. Execute tasks (check boxes as you go)
 2. Suggest commit messages (do NOT run git commands)
 3. Run verification: tsc, lint, test
-4. Check: Do learnings require updates to 2-requirements.md or 3-design.md?
+4. Check: Do learnings require updates to 3-requirements.md or 4-design.md?
    - Yes → Update documents, review impact on remaining plans
    - No → Continue
 5. Present to user for approval
@@ -142,7 +183,7 @@ For each `4-implementation-plan-{N}.md`:
 
 ### Important Rules
 
-- Follow 2-requirements.md and 3-design.md strictly
+- Follow 3-requirements.md and 4-design.md strictly
 - Update specs directly when learnings emerge (no separate learnings file)
 - Suggest commit messages but never execute git commands
 - Run `tsc`/`lint`/`test` before user confirmation
