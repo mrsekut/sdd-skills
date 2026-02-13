@@ -1,6 +1,9 @@
 ---
 name: sdd
-description: Spec-driven development workflow for implementing features with structured documentation. Use when starting a new feature, task, or implementation that benefits from upfront planning. Triggers: "/sdd", "spec-driven", "create spec", "implementation plan", or when user describes a feature/task to implement.
+description: >
+  Spec-driven development workflow for implementing features with structured documentation.
+  Use when starting a new feature, task, or implementation that benefits from upfront planning.
+  Triggers: /sdd, spec-driven, create spec, implementation plan, or when user describes a feature/task to implement.
 ---
 
 # SDD - Spec Driven Development
