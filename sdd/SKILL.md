@@ -101,6 +101,9 @@ Guidelines:
 - Define scope boundaries (in/out of scope)
 - Keep concise: max 5 items per section
 - No technical implementation details
+- Mark ambiguous requirements with `[NEEDS CLARIFICATION]` (e.g., `User can authenticate [NEEDS CLARIFICATION: OAuth? Password?]`)
+
+All `[NEEDS CLARIFICATION]` markers must be resolved before approval.
 
 Present to user and get approval before proceeding.
 
