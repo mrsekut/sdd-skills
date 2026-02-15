@@ -67,13 +67,28 @@ Rapidly build a throwaway prototype to understand user experience before definin
 - Focus on the "feel" of using it, not the implementation quality
 - No tests, no clean code - just make it work enough to try
 
+### Setup
+
+Create a prototype branch using git worktree:
+
+```bash
+git worktree add ../prototype-{task-name} -b prototype/{task-name}
+```
+
+Work in the worktree directory. The main working directory stays clean.
+
 ### Process
 
-1. Build a rough prototype (ignore tsc/lint errors)
+1. Build a rough prototype in the worktree (ignore tsc/lint errors)
 2. User tries the prototype and provides feedback
-3. Document learnings in `.specs/{task-name}/2-prototyping-learnings.md`
-4. **Discard all code changes** (e.g., `git checkout .`)
-5. Proceed to Requirements phase with new insights
+3. Document learnings in `.specs/{task-name}/2-prototyping-learnings.md` (in main directory)
+4. Include useful code snippets in the learnings doc for later reference
+5. Remove the worktree and branch:
+   ```bash
+   git worktree remove ../prototype-{task-name}
+   git branch -D prototype/{task-name}
+   ```
+6. Proceed to Requirements phase with new insights
 
 Create `.specs/{task-name}/2-prototyping-learnings.md`. See [references/templates.md](references/templates.md#2-prototyping-learnings) for format.
 
